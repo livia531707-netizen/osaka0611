@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️ 2026 大阪初夏小旅行 🌸</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Nunito:wght@600;800&display=swap');
+        
+        :root {
+            --bg-color: #FFF5F7;
+            --main-pink: #FFB7C5;
+            --main-blue: #A2D2FF;
+            --main-green: #B9FBC0;
+            --main-yellow: #FDF0D5;
+            --text-dark: #5C5C5C;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--main-pink), var(--main-blue));
+            border-radius: 30px;
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 183, 197, 0.4);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .todo-list {
+            background-color: var(--main-yellow);
+            padding: 20px 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 3px dashed #FFD670;
+        }
+
+        .todo-list h2 {
+            margin-top: 0;
+            color: #E29578;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .todo-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .todo-item {
+            background: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #E29578;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .day-card {
+            background-color: var(--card-bg);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+        }
+
+        .day-1::before { background-color: var(--main-pink); }
+        .day-2::before { background-color: var(--main-blue); }
+        .day-3::before { background-color: var(--main-green); }
+        .day-4::before { background-color: #FFD670; }
+        .day-5::before { background-color: #CDB4DB; }
+
+        .day-title {
+            font-size: 1.6rem;
+            margin: 0 0 20px 0;
+            color: var(--text-dark);
+            border-bottom: 2px dashed #EEE;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .timeline li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .time {
+            flex: 0 0 110px;
+            font-weight: 700;
+            color: #888;
+            background-color: #F8F9FA;
+            padding: 5px 10px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-right: 15px;
+        }
+
+        .event {
+            flex: 1;
+            padding-top: 3px;
+        }
+
+        .event strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 4px;
+        }
+
+        .event p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #777;
+            white-space: pre-line; /* 保留文字換行 */
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #AAA;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .timeline li {
+                flex-direction: column;
+            }
+            .time {
+                margin-bottom: 5px;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 標頭 -->
+        <header>
+            <h1>✈️ 2026 大阪初夏小旅行 🌸</h1>
+            <p>06/11 (四) - 06/15 (一) ｜ </p>
+        </header>
+
+        <!-- 行前代辦事項 -->
+        <div class="todo-list">
+            <h2>📝 出發前代辦小清單</h2>
+            <div class="todo-items">
+                <div class="todo-item">✔️ Visit Japan Web</div>
+                <div class="todo-item">✔️ eSIM 網卡</div>
+                <div class="todo-item">✔️ 旅遊平安險</div>
+                <div class="todo-item">✔️ 兌換日幣</div>
+            </div>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="day-card day-1">
+            <h2 class="day-title">🍡 Day 1：啟程大阪 ｜ 06/11 (四)</h2>
+            <ul class="timeline">
+                <li>
+                    <div class="time">13:00</div>
+                    <div class="event"><strong>抵達台灣機場準備出發 🛫</strong></div>
+                </li>
+                <li>
+                    <div class="time">15:40 - 19:20</div>
+                    <div class="event"><strong>飛機航班時間 ☁️</strong></div>
+                </li>
+                <li>
+                    <div class="time">19:20 - 21:00</div>
+                    <div class="event"><strong>抵達關西機場 ＆ 出關手續</strong></div>
+                </li>
+                <li>
+                    <div class="time">21:00 - 22:00</div>
+                    <div class="event">
+                        <strong>前往住宿放行李 🏨</strong>
+                        <p>微笑飯店Premium 大阪本町 (大阪市中央區南船場2丁目8番6號)
+南海電鉄特急: 關西機場 > 天下茶屋(要買票)
+地鐵堺筋線: 天下茶屋 > 長堀橋站(ICOCA卡)
+💡 提示：長堀穚站3號出口是電梯，走路7分鐘到飯店。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">22:00 - 23:00</div>
+                    <div class="event">
+                        <strong>晚餐時光 🥩</strong>
+                        <p>Yakinikuen 忍鬨（Ning） 東心齋橋總本店
+「厚切蔥包牛舌」發源店！(已訂位 22:30)
+交通：長堀穚站步行2分 / 飯店步行8分</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card day-2">
+            <h2 class="day-title">🦊 Day 2：天王寺散策 ｜ 06/12 (五)</h2>
+            <ul class="timeline">
+                <li>
+                    <div class="time">09:00 - 10:00</div>
+                    <div class="event">
+                        <strong>四天王寺 ⛩️</strong>
+                        <p>JR「天王寺站」散步約12分鐘抵達。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">10:00 - 11:00</div>
+                    <div class="event">
+                        <strong>堀越神社 🙏</strong>
+                        <p>位在四天王寺旁，傳說能實現「一生一次的願望」喔！</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">11:00 - 12:00</div>
+                    <div class="event"><strong>午餐 🍱</strong><p>待定，隨心探索美食。</p></div>
+                </li>
+                <li>
+                    <div class="time">12:00 - 16:00</div>
+                    <div class="event"><strong>天王寺動物園 🦒 + 天王寺公園 + 慶沢園</strong></div>
+                </li>
+                <li>
+                    <div class="time">16:00 - 20:00</div>
+                    <div class="event">
+                        <strong>天王寺商圈逛街 🛍️</strong>
+                           <p>天王寺MIO 本館</p>
+                           <p>1F 治一郎布丁 6F graniph</p>
+                           <p>阿倍野 Q's Mall </p>
+                           <p>B1-2F伊藤洋華堂阿倍野店</p>
+                           <p>3F 光之美少女專賣店 VILLAGE/VANGUARD</p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="time">20:00 - 21:00</div>
+                    <div class="event"><strong>回程休息 🚶‍♀️</strong></div>
+                </li>
+                <li>
+                    <div class="time">21:00</div>
+                    <div class="event">
+                        <strong>晚餐 🍜</strong>
+                        <p>the ramen war (拉麵大戰爭) 心齋橋店 (不可訂位)
+交通：心齋橋站步行6分 / 飯店步行7分</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card day-3">
+            <h2 class="day-title">🦌 Day 3：奈良尋鹿 ｜ 06/13 (六)</h2>
+            <ul class="timeline">
+                <li>
+                    <div class="time">08:00 - 09:00</div>
+                    <div class="event">
+                        <strong>前往奈良 🚃</strong>
+                        <p>心齋橋搭御堂筋線到難波 > 轉乘近鐵奈良線直達奈良 (約42分)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">09:00 - 12:00</div>
+                    <div class="event"><strong>奈良公園、東大寺、春日大社 🌳</strong></div>
+                </li>
+                <li>
+                    <div class="time">12:00 - 13:00</div>
+                    <div class="event">
+                        <strong>午餐 🍚</strong>
+                        <p>志津香釜飯 (奈良國立博物館對面) 或是 水谷茶屋 (春日大社旁邊)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">13:00 - 17:00</div>
+                    <div class="event">
+                        <strong>生駒山上遊樂園 🎡</strong>
+                        <p>近鐵奈良線至「生駒站(A17)」> 步行至「鳥居前站(Y17)」轉乘纜車至「生駒山上站(Y21)」</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">17:00 - 18:00</div>
+                    <div class="event"><strong>回程心齋橋 🚇</strong></div>
+                </li>
+                <li>
+                    <div class="time">18:00 - 20:00</div>
+                    <div class="event"><strong>心齋橋自由活動 🛍️</strong><p>預留時間，沒事就逛逛街。</p></div>
+                </li>
+                <li>
+                    <div class="time">20:00 - 21:00</div>
+                    <div class="event">
+                        <strong>晚餐 🐔</strong>
+                        <p>麥×鷄 (心齋橋站1號或2號出口步行約6分鐘)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">21:00</div>
+                    <div class="event"><strong>回飯店休息 🌙</strong></div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card day-4">
+            <h2 class="day-title">🍁 Day 4：勝尾寺＆大瀑布 ｜ 06/14 (日)</h2>
+            <ul class="timeline">
+                <li>
+                    <div class="time">08:00 - 10:00</div>
+                    <div class="event">
+                        <strong>前往勝尾寺 🚌</strong>
+                        <p>心齋橋站搭御堂筋線終點站「箕面萱野站」下車 (32分)
+轉乘：8號巴士站，搭乘 30號公車 (9點第一班，每20分一班)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">10:00 - 12:00</div>
+                    <div class="event"><strong>勝尾寺 (達摩寺) 🔴</strong></div>
+                </li>
+                <li>
+                    <div class="time">12:00 - 13:00</div>
+                    <div class="event">
+                        <strong>午餐 & 前往大瀑布 🥪</strong>
+                        <p>建議先在便利商店買好午餐。
+交通：勝尾寺旁搭計程車5-10分鐘 (車資約1400日圓)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">13:00 - 15:00</div>
+                    <div class="event"><strong>箕面大瀑布 🌊</strong></div>
+                </li>
+                <li>
+                    <div class="time">15:00 - 17:00</div>
+                    <div class="event">
+                        <strong>回程路線 🛤️</strong>
+                        <p>1. 沿溪流步道往下走約45分至山腳下「箕面站」。
+2. 從「箕面站」搭阪急箕面線至「石橋阪大前站」。
+3. 轉乘阪急寶塚線(急行)至終點「大阪梅田站」。</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">17:00 - 19:00</div>
+                    <div class="event"><strong>梅田自由活動 🏬</strong><p>預留時間逛逛梅田商圈。</p></div>
+                </li>
+                <li>
+                    <div class="time">19:00 - 21:00</div>
+                    <div class="event">
+                        <strong>晚餐 🍣</strong>
+                        <p>大眾壽司酒處 Uoshin酒場 (梅田站步行5分)
+或 鰻魚izumo (LUCUA1100 地下2樓)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="time">21:00</div>
+                    <div class="event"><strong>回飯店休息 🌙</strong></div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card day-5">
+            <h2 class="day-title">🐙 Day 5：難波逛街 ｜ 06/15 (一)</h2>
+            <ul class="timeline">
+                              <li>
+                    <div class="time">10:30 - 12:00</div>
+                    <div class="event">
+                        <strong>午餐 🥩</strong>
+                        <p>焼肉 㐂舌 Yakiniku Kitan
+法善寺店才有午餐套餐喔！(在難波/道頓堀區域不可預約)</p>
+11點開門 可提前半小時排隊</p>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="time">12:00 - 16:00</div>
+                    <div class="event"><strong>難波逛街血拼 🎁</strong></div>
+                </li>
+                <li>
+                    <div class="time">16:00 - 17:00</div>
+                    <div class="event"><strong>回飯店拿行李 🧳</strong></div>
+                </li>
+                <li>
+                    <div class="time">17:00 - 18:30</div>
+                    <div class="event"><strong>前往機場 🚆</strong></div>
+                </li>
+                <li>
+                    <div class="time">18:30</div>
+                    <div class="event"><strong>抵達關西機場辦理手續 🛂</strong></div>
+                </li>
+                <li>
+                    <div class="time">20:45 - 23:05</div>
+                    <div class="event"><strong>飛機航班 🛫 帶著滿滿回憶平安回家！</strong></div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>Designed with ❤️ for Osaka Trip 2026</p>
+        </div>
+    </div>
+
+</body>
+</html>
